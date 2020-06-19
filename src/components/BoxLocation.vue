@@ -26,9 +26,7 @@
     },
     methods: {
       searchPosition() {
-        return navigator.geolocation.getCurrentPosition(function (position) {
-          console.info(position, 'posição')
-        });
+        return navigator.geolocation.getCurrentPosition(function (position) {});
       }
     }
   };

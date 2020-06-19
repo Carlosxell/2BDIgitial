@@ -54,7 +54,6 @@
         }
       },
       setWeather(val) {
-        console.info(val, 'valor recebido');
         this.$emit('OnGetWeather', val);
       },
       replaceSpaces(str) {
