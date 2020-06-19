@@ -10,15 +10,21 @@
     </div>
 
     <button class="m-btn--search"
-            :disabled="searching"
             type="submit"
-            title="Procurar">Procurar</button>
+            title="Procurar"
+            v-if="!searching">Procurar</button>
+
+    <Spinner :prop-text="`Buscando cidade`"
+             v-if="searching" />
   </form>
 </template>
 
 <script>
+  import Spinner from './Spinner';
+
   export default {
     name: 'SearchForm',
+    components: { Spinner },
     data: () => {
       return {
         searching: false,

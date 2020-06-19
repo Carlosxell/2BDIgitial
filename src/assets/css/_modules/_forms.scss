@@ -17,6 +17,11 @@
     outline: none;
   }
 
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .76;
+  }
+
   @include placeholder {
     color: $color-gray;
   }
