@@ -9,8 +9,8 @@ module.exports = {
   },
   devServer: {
     https: {
-      key: fs.readFileSync('./localhost+1-key.pem'),
-      cert: fs.readFileSync('./localhost+1.pem'),
+      key: fs.readFileSync('./licensed+5-key.pem'),
+      cert: fs.readFileSync('./licensed+5.pem'),
     },
   },
 };
