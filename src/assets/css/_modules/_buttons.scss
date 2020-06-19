@@ -23,39 +23,9 @@
 .m-btn {
   @extend .m-btnPlaceholder;
 
-  &--link,
-  &--clear,
-  &--brand {
+  &--search {
     @extend .m-btnPlaceholder;
-  }
-
-  &--link {
-    color: $color-red;
-    font-weight: 600;
-
-    &:hover,
-    &:focus {
-      opacity: .8;
-    }
-  }
-
-  &--clear {
-    background-color: lighten($color-gray_2, 18%);
-    color: $color-gray;
-    width: 100%;
-
-    &:hover,
-    &:focus {
-      opacity: .8;
-    }
-
-    @media(min-width: pxToRem(568)) {
-      width: auto;
-    }
-  }
-
-  &--brand {
-    background-color: $color-red;
+    background-color: $color-dark;
     color: $color-white;
     font-weight: 600;
     text-transform: uppercase;
@@ -67,26 +37,13 @@
     }
 
     &:hover {
-      background: $color-red radial-gradient(circle, transparent 1%, $color-red 1%) center/15000%;
+      background: $color-dark radial-gradient(circle, transparent 1%, $color-dark 1%) center/15000%;
     }
 
     &:active {
-      background-color: lighten($color-red, 6%);
+      background-color: lighten($color-dark, 6%);
       background-size: 100%;
       transition: background 0s;
-    }
-
-    @media(min-width: pxToRem(568)) {
-      min-width: pxToRem(212);
-    }
-
-    @media(min-width: pxToRem(768)) {
-      font-size: pxToRem(16);
-      min-width: pxToRem(248);
-    }
-
-    @media(min-width: pxToRem(992)) {
-      min-width: pxToRem(282);
     }
   }
 }

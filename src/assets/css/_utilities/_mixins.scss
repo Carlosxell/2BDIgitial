@@ -1,5 +1,12 @@
 @import '_functions';
 
+@mixin placeholder {
+  &:-ms-input-placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
 // mixin for CSS calc() function
 @mixin calc($propertie, $expression, $important) {
   // PS: in $expression is necessary put the maths functions with spaces between them and set them like string

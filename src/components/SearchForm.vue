@@ -1,13 +1,15 @@
 <template>
-  $END$
+  <div>
+    lorem
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'SearchForm'
-  }
+    name: 'SearchForm',
+  };
 </script>
 
-<style scoped>
-
+<style lang="scss">
+  @import '../assets/css/_utilities/_exports';
 </style>
