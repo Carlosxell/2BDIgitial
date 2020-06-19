@@ -1,0 +1,105 @@
+@import '../_utilities/_exports';
+
+.m-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: pxToRem(-6);
+  margin-right: pxToRem(-6);
+
+  &--noGutters {
+    margin-left: 0;
+    margin-right: 0;
+
+    [class*='m-col'] {
+      padding: 0;
+    }
+  }
+}
+
+.m-col {
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 0;
+  max-width: 100%;
+
+  @for $i from 1 through $grid-columns {
+    &--#{$i} {
+      flex: 0 0 100% / $grid-columns * $i;
+      max-width: 100% / $grid-columns * $i;
+    }
+  }
+
+  &--auto {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
+  @media(min-width: pxToRem(568)) {
+    &--autoXXS {
+      flex: 0 0 auto;
+      max-width: 100%;
+    }
+
+    @for $i from 1 through $grid-columns {
+      &--XXS#{$i} {
+        flex: 0 0 100% / $grid-columns * $i;
+        max-width: 100% / $grid-columns * $i;
+      }
+    }
+  }
+
+  @media(min-width: pxToRem(768)) {
+    &--autoXS {
+      flex: 0 0 auto;
+      max-width: 100%;
+    }
+
+    @for $i from 1 through $grid-columns {
+      &--XS#{$i} {
+        flex: 0 0 100% / $grid-columns * $i;
+        max-width: 100% / $grid-columns * $i;
+      }
+    }
+  }
+
+  @media(min-width: pxToRem(992)) {
+    &--autoMD {
+      flex: 0 0 auto;
+      max-width: 100%;
+    }
+
+    @for $i from 1 through $grid-columns {
+      &--MD#{$i} {
+        flex: 0 0 100% / $grid-columns * $i;
+        max-width: 100% / $grid-columns * $i;
+      }
+    }
+  }
+
+  @media(min-width: pxToRem(1200)) {
+    &--autoLG {
+      flex: 0 0 auto;
+      max-width: 100%;
+    }
+
+    @for $i from 1 through $grid-columns {
+      &--LG#{$i} {
+        flex: 0 0 100% / $grid-columns * $i;
+        max-width: 100% / $grid-columns * $i;
+      }
+    }
+  }
+}
+
+[class*='m-col'] {
+  padding-left: pxToRem(6);
+  padding-right: pxToRem(6);
+}
+
+.s-alignYCenter {
+  align-items: center;
+}
+
+.s-justifyBetween {
+  justify-content: space-between;
+}

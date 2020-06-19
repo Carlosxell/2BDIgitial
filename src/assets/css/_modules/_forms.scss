@@ -1,0 +1,114 @@
+@import '../_utilities/_exports';
+
+.m-inputPlaceholder {
+  appearance: none;
+  border: pxToRem(2) solid $color-gray_2;
+  border-radius: pxToRem(4);
+  background-color: transparent;
+  display: block;
+  font-weight: 600;
+  outline: none;
+  padding: pxToRem(8);
+  width: 100%;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+.m-checkbox {
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+  margin-bottom: pxToRem(12);
+
+  &_label {
+    cursor: pointer;
+    padding-left: pxToRem(32);
+    position: relative;
+    word-break: break-word;
+
+    &:after,
+    &:before {
+      border: pxToRem(2) solid;
+      border-radius: pxToRem(2);
+      content: '';
+      left: pxToRem(2);
+      display: inline-block;
+      position: absolute;
+      top: 0;
+    }
+
+    &:before {
+      border-color: $color-gray_2;
+      height: pxToRem(16);
+      width: pxToRem(16);
+    }
+
+    &:after {
+      border-color: transparent $color-red $color-red transparent;
+      height: pxToRem(10);
+      left: pxToRem(8);
+      opacity: 0;
+      transform: rotate(45deg);
+      transition: opacity;
+      width: pxToRem(4);
+    }
+  }
+
+  &_check {
+    color: transparent;
+    height: pxToRem(1);
+    opacity: 0;
+    position: absolute;
+    width: pxToRem(1);
+
+    &:checked {
+      ~ .m-checkbox_label {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.m-input {
+  @extend .m-inputPlaceholder;
+}
+
+.m-select {
+  @extend .m-inputPlaceholder;
+  background: url('./assets/img/ic-down-arrow.svg') no-repeat center right;
+  background-position-x: calc(100% - #{pxToRem(12)});
+  background-size: pxToRem(12);
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.m-formBox {
+  margin-bottom: pxToRem(12);
+  position: relative;
+
+  &_append {
+    @extend .m-inputPlaceholder;
+    bottom: 0;
+    font-size: pxToRem(14);
+    font-weight: 400;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    ~ .m-select,
+    ~ .m-input {
+      border-color: transparent;
+      position: relative;
+      margin-left: auto;
+      width: calc(100% - #{pxToRem(60)});
+    }
+  }
+}
