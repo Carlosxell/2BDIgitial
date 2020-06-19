@@ -42,7 +42,7 @@
     &:active {
       background-color: lighten($color-dark, 6%);
       background-size: 100%;
-      transition: background 0s;
+      transition: background .12ms;
     }
   }
 }

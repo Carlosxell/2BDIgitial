@@ -6,7 +6,8 @@
       <input class="c-formSearch_input m-input"
              :disabled="searching"
              placeholder="Buscar por cidade"
-             type="search" />
+             type="search"
+             v-model="searchText" />
     </div>
 
     <button class="m-btn--search"
@@ -21,6 +22,7 @@
 
 <script>
   import Spinner from './Spinner';
+  import { searchLocationByCityName, searchLocationBy3G } from '../services/location-service';
 
   export default {
     name: 'SearchForm',
@@ -28,10 +30,31 @@
     data: () => {
       return {
         searching: false,
+        searchText: '',
       };
     },
     methods: {
-      async searchCity() {},
+      async searchCity() {
+        this.searching = true;
+
+        try {
+          this.setWeather = await searchLocationByCityName(this.replaceSpaces(this.searchText));
+          this.searching = false;
+        } catch (e) {
+          this.dispatchError(e);
+        }
+      },
+      setWeather(val) {
+        this.$emit('OnGetWeather', val);
+      },
+      replaceSpaces(str) {
+        while (str.match(' ')) { str = str.replace(' ', ''); }
+        return str;
+      },
+      dispatchError(error) {
+        this.$emit('OnGetError', error);
+        this.searching = false;
+      },
     },
   };
 </script>
