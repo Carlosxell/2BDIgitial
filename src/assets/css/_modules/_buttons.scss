@@ -7,6 +7,7 @@
   border-radius: pxToRem(4);
   cursor: pointer;
   display: inline-block;
+  font-weight: 600;
   margin-bottom: pxToRem(12);
   outline: none;
   padding: pxToRem(12);
@@ -27,8 +28,6 @@
     @extend .m-btnPlaceholder;
     background-color: $color-dark;
     color: $color-white;
-    font-weight: 600;
-    text-transform: uppercase;
     width: 100%;
 
     &:disabled {
